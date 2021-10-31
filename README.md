@@ -61,23 +61,9 @@
     * SSL is imported to connect plotly with the CSV files through this code:
         * ``ssl._create_default_https_context = ssl._create_unverified_context``
     
-    * Two maps are created:
+    * One map is created:
 
-    * A heat map that collects the sum of all COVID-19 cases in each state.
-    * A choropleth map that collects the sum of all COVID-19 cases in each county at a particular state that the user inputs.
-    
-    * Choropleth map:
-    * Pandas iterates through all the columns that contain the keyword for a particular state:
-      * A manually coded example (doesn't take into account for user input)': ``df_Maryland = df[ df['state'] == "Maryland"]``
-    * Pandas is used to set the date to the current date by using the built-in  function `max()` function and then is used to iterate through all COVID-19 cases for the current date in that particular state:
-      * `last_date = df['date'].max()`
-      * `df = df_Maryland[ df_Maryland['date'] == last_date]` (manually coded example)
-    * Pandas is also used calculate the sum of all COVID-19 cases and deaths for a particular state through the built-in function `sum()`:
-      * `df['cases'].sum()`
-      * `df['deaths'].sum()`
-      * This iterates through all cases and deaths for each county for that state in the csv file.
-    * Plotly is used to make a choropleth map that iterates through the COVID-19 data for all counties in order to create the map:
-      * `fig = px.choropleth(df, geojson=counties, locations='fips', color='cases', color_continuous_scale="Viridis", range_color=(0, 20000) )`
+    * A heat map that collects the sum of all COVID-19 cases in each state. 
       
     * Heat map:
     * Pandas is again used set the date to the current date by using the built-in  function `max()` function and then is used to iterate through all COVID-19 cases for the current date in that particular state:
